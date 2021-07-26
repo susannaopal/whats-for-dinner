@@ -1,4 +1,3 @@
-
 var sides = [
 'Miso Glazed Carrots',
 'Coleslaw',
@@ -49,49 +48,34 @@ var desserts = [
 'Eclairs'
 ]
 
-
 var addRecipeBtn = document.querySelector('.recipe-btn');
 var clearBtn= document.querySelector('.clear-btn')
+var cookPot = document.querySelector('.cook-pot-img');
+var foodRecommendation = document.querySelector('.food-recommendation')
 var letsCookBtn = document.querySelector('.cook-btn');
-var radioSidesBtn = document.querySelector('.sides-option');
-var radioMainsBtn = document.querySelector('.mains-option');
 var radioDessertsBtn = document.querySelector('.desserts-option');
 var radioEntireBtn = document.querySelector('.entire-meal-option');
-var cookPot = document.querySelector('.cook-pot-img');
+var radioMainsBtn = document.querySelector('.mains-option');
+var radioSidesBtn = document.querySelector('.sides-option');
 var youMake = document.querySelector('.you-make');
 
-
-var youMake = document.querySelector('.you-make')
-
-var radioEntireBtn = document.querySelector('.entire-meal-option');
-
-
-var foodRecommendation = document.querySelector('.food-recommendation')
-var clearBtn= document.querySelector('.clear-btn')
-
-
-letsCookBtn.addEventListener('click', letsCook);
 clearBtn.addEventListener('click', pushClearBtn);
-
-
-
-
+letsCookBtn.addEventListener('click', letsCook);
 
 function checkRadioButton () {
   if(radioSidesBtn.checked) {
      return sides[getRandomIndex(sides)];
-}
+   }
   if(radioMainsBtn.checked) {
     return mains[getRandomIndex(mains)];
-}
+  }
   if(radioDessertsBtn.checked) {
     return desserts[getRandomIndex(desserts)];
-}
+  }
   if(radioEntireBtn.checked) {
     return `${mains[getRandomIndex(mains)]} with a side of ${sides[getRandomIndex(sides)]} and ${desserts[getRandomIndex(desserts)]} for dessert`
   }
 }
-
 
 function letsCook (event) {
   event.preventDefault()
@@ -108,6 +92,7 @@ function pushClearBtn (event) {
   foodRecommendation.classList.add('hidden');
   cookPot.classList.remove('hidden');
   youMake.classList.add('hidden');
+  location.reload();
 }
 
 function getRandomIndex(array) {
